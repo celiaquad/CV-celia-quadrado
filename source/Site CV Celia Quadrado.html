@@ -116,7 +116,7 @@
         <sc-for list="{{ xp }}" as="item" hint-placeholder-count="6">
           <article style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: clamp(12px, 3vw, 44px); padding: 26px clamp(10px, 2vw, 22px); margin: 0 clamp(-10px, -2vw, -22px); border-top: 1px solid #e2ddd3; border-radius: 14px; transition: background 0.25s;" style-hover="background: #eae6dd;">
             <p style="margin: 0; display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #a8522e; line-height: 1.7;"><span style="width: 6px; height: 6px; border-radius: 50%; background: {{ item.dot }}; flex: 0 0 auto;"></span>{{ item.date }}</p>
-            <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #2a2823; max-width: 64ch;">{{ item.text }}</p>
+            <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #2a2823; max-width: 64ch; text-align: justify;">{{ item.text }}</p>
           </article>
         </sc-for>
       </div>
@@ -129,7 +129,7 @@
         <sc-for list="{{ edu }}" as="item" hint-placeholder-count="4">
           <article style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: clamp(12px, 3vw, 44px); padding: 26px clamp(10px, 2vw, 22px); margin: 0 clamp(-10px, -2vw, -22px); border-top: 1px solid #e2ddd3; border-radius: 14px; transition: background 0.25s;" style-hover="background: #e5ece7;">
             <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #3f7a5f; line-height: 1.7;">{{ item.date }}</p>
-            <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #2a2823; max-width: 64ch;">{{ item.text }}</p>
+            <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #2a2823; max-width: 64ch; text-align: justify;">{{ item.text }}</p>
           </article>
         </sc-for>
       </div>
