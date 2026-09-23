@@ -27,6 +27,15 @@ Le site est publié par GitHub Pages sur https://cv.quadrado.fr/. Mettez en lign
 `index.html` **avec** les dossiers `fonts/` et `images/` et le fichier `favicon.svg`.
 Pensez à mettre à jour la date `<lastmod>` de `sitemap.xml` à chaque modification.
 
+## Sécurité (Cloudflare)
+
+Cloudflare ajoute des en-têtes de sécurité, dont une `Content-Security-Policy`
+(Rules → Transform Rules → Modify Response Header). Elle n'autorise que le script en
+bas de `index.html`, identifié par son empreinte `sha256-…`. **Si ce script est modifié**,
+il faut recalculer l'empreinte et la remplacer dans la règle Cloudflare, sinon le
+surlignage du menu ne fonctionne plus (le reste du site continue de marcher). Modifier
+le texte ou le CSS du CV ne change rien.
+
 ## Polices utilisées
 
 - Instrument Serif (400, italique) — titres
