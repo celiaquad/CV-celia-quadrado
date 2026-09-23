@@ -11,9 +11,11 @@ sont auto-hébergées dans `fonts/`. Le site n'utilise ni cookie ni outil de mes
   (facultatives) pour surligner la rubrique courante dans le menu. C'est ce fichier qu'on
   modifie directement pour mettre à jour le CV.
 - `fonts/` — les fichiers de polices `.woff2` + `fonts.css` (déclarations `@font-face`).
-- `images/` — les images du site (`cyanotypes.jpg`, aussi utilisée pour l'aperçu sur les
-  réseaux sociaux).
+- `images/` — les images du site : `cyanotypes.jpg` (aussi utilisée pour l’aperçu sur les
+  réseaux sociaux) et ses versions WebP allégées `cyanotypes-800/1200/1600.webp`.
+- `404.html` — page affichée pour une adresse inexistante.
 - `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME` — fichiers de mise en ligne.
+- `_config.yml` — liste les fichiers du dépôt à ne pas publier (ce LISEZ-MOI, `source/`, le PDF).
 
 ## Utilisation
 
@@ -22,7 +24,7 @@ Double-cliquez sur `index.html` pour ouvrir le site dans un navigateur.
 ## Mise en ligne
 
 Le site est publié par GitHub Pages sur https://cv.quadrado.fr/. Mettez en ligne
-`index.html` **avec** les dossiers `fonts/` et `images/` et le fichier `favicon.svg`.
+`index.html` **avec** les dossiers `fonts/` et `images/` et les fichiers `favicon.svg` et `404.html`.
 Pensez à mettre à jour la date `<lastmod>` de `sitemap.xml` à chaque modification.
 
 ## Sécurité (Cloudflare)
@@ -51,3 +53,13 @@ latin-ext sont inclus (suffisant pour le français).
 - Terracotta (accent) : `#b5603c`
 - Vert (secondaire) : `#3f7a5f`
 - Cartes : `#eae6dd` et `#e5ece7`
+
+## Changer la photo d'accueil
+
+La photo existe en JPEG (image de secours et aperçu réseaux sociaux) et en WebP, plus
+léger, en trois largeurs. Si vous remplacez `images/cyanotypes.jpg`, regénérez les WebP,
+par exemple avec ffmpeg :
+
+    ffmpeg -i cyanotypes.jpg -vf scale=800:-1 -quality 75 cyanotypes-800.webp
+    ffmpeg -i cyanotypes.jpg -vf scale=1200:-1 -quality 75 cyanotypes-1200.webp
+    ffmpeg -i cyanotypes.jpg -vf scale=1600:-1 -quality 75 cyanotypes-1600.webp

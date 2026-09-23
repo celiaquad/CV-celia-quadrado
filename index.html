@@ -81,6 +81,13 @@
     ::selection { background: #f0ddd0; }
     img { max-width: 100%; display: block; }
 
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier. Masqué sur les
+       rubriques autres que l'accueil, car #contenu ramènerait à l'accueil. */
+    .skip-link { position: absolute; top: 12px; left: 12px; z-index: 60; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; transform: translateY(-200%); }
+    .skip-link:focus { transform: none; color: var(--paper); }
+    body:has(.page:not(#accueil):target) .skip-link { display: none; }
+    main:focus { outline: none; }
+
     .grain { position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.09; mix-blend-mode: multiply; background-size: 4px 4px; background-image: radial-gradient(circle at 1px 1px, rgba(27, 26, 23, 0.55) 1px, transparent 0); }
 
     .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
@@ -212,6 +219,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -227,14 +235,14 @@
     </div>
   </header>
 
-  <main id="contenu">
+  <main id="contenu" tabindex="-1">
 
     <section id="accueil" class="page" aria-label="Présentation">
       <div class="hero reveal">
         <p class="label status"><span class="dot" aria-hidden="true"></span>Disponible pour un stage — Lyon</p>
         <h1>Célia<br><em>Quadrado</em></h1>
         <div class="hero__row">
-          <p class="hero__lead">Étudiante en Master 2 Cinéma Audiovisuel, parcours Études et Créations Photographiques, université Lyon 2 Lumière.<br>Photographie numérique, argentique et expérimentale.</p>
+          <p class="hero__lead">Étudiante en Master 2 Cinéma Audiovisuel, parcours Études et Créations Photographiques, Université Lumière Lyon 2.<br>Photographie numérique, argentique et expérimentale.</p>
           <div class="actions">
             <a class="btn btn--primary" href="#parcours">Voir le parcours</a>
             <a class="btn btn--ghost" href="mailto:quadradocelia@gmail.com">Me contacter</a>
@@ -250,7 +258,10 @@
       </div>
 
       <figure class="photo reveal reveal--2">
-        <img src="images/cyanotypes.jpg" width="1600" height="1200" alt="Série de tirages cyanotype, recherche personnelle" fetchpriority="high">
+        <picture>
+          <source type="image/webp" srcset="images/cyanotypes-800.webp 800w, images/cyanotypes-1200.webp 1200w, images/cyanotypes-1600.webp 1600w" sizes="(min-width: 1320px) 1180px, 90vw">
+          <img src="images/cyanotypes.jpg" width="1600" height="1200" alt="Série de tirages cyanotype, recherche personnelle" fetchpriority="high">
+        </picture>
         <figcaption class="label label--sm">Cyanotype — recherche personnelle</figcaption>
       </figure>
 
@@ -269,7 +280,7 @@
         <div class="card">
           <p class="label label--sm">En cours</p>
           <p class="card__title">Master 2 Cinéma Audiovisuel</p>
-          <p class="card__text">Parcours Études et Créations Photographiques — Lyon 2 Lumière</p>
+          <p class="card__text">Parcours Études et Créations Photographiques — Université Lumière Lyon 2</p>
         </div>
         <div class="card card--green">
           <p class="label label--sm">Recherche</p>
@@ -296,12 +307,12 @@
       <ol class="timeline">
         <li><p class="timeline__date"><span class="dot dot--other" aria-hidden="true"></span>Août 2026</p><p class="timeline__text">Accompagnatrice Voyages Adaptés — accompagnatrice de personnes en situation de handicap en vacances</p></li>
         <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Avril 2026</p><p class="timeline__text">Médiatrice lors d’une résidence sur les techniques anciennes de la photographie, Varagnes</p></li>
-        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Mars – Mai 2026</p><p class="timeline__text">Participation à l’exposition en Corps, collaboration entre les étudiants de l’université Lumière Lyon 2 et les archives municipales de Lyon</p></li>
+        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Mars – Mai 2026</p><p class="timeline__text">Participation à l’exposition en Corps, collaboration entre les étudiants de l’Université Lumière Lyon 2 et les archives municipales de Lyon</p></li>
         <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Septembre – Décembre 2025</p><p class="timeline__text">Participation au projet MACSUP neuvième édition, en collaboration avec le Musée d’art contemporain de Lyon</p></li>
-        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Septembre – Décembre 2025</p><p class="timeline__text">Participation à l’exposition Images de ville, collaboration entre les étudiants de l’université Lumière Lyon 2 et les archives municipales de Lyon</p></li>
-        <li><p class="timeline__date"><span class="dot dot--other" aria-hidden="true"></span>Juin – Juillet – Août 2022 à 2025</p><p class="timeline__text">Travail d’été en intérim (salaison, caisse...)</p></li>
+        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Septembre – Décembre 2025</p><p class="timeline__text">Participation à l’exposition Images de ville, collaboration entre les étudiants de l’Université Lumière Lyon 2 et les archives municipales de Lyon</p></li>
+        <li><p class="timeline__date"><span class="dot dot--other" aria-hidden="true"></span>Juin – Juillet – Août 2022 à 2025</p><p class="timeline__text">Travail d’été en intérim (salaison, caisse…)</p></li>
         <li><p class="timeline__date"><span class="dot dot--other" aria-hidden="true"></span>2024</p><p class="timeline__text">Gestion de la communication et de la mise en avant du club de basket de Saint-Médard en Forez</p></li>
-        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Novembre 2023</p><p class="timeline__text">Workshop réalisé dans le cadre d’un cours de photographie expérimentale, à l’Esad Saint-Etienne, en compagnie de Laurence Aëgerter</p></li>
+        <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Novembre 2023</p><p class="timeline__text">Workshop réalisé dans le cadre d’un cours de photographie expérimentale, à l’Esad Saint-Étienne, en compagnie de Laurence Aëgerter</p></li>
         <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Septembre 2023</p><p class="timeline__text">Photographe bénévole pour le trail de Saint-Médard en Forez</p></li>
         <li><p class="timeline__date"><span class="dot" aria-hidden="true"></span>Avril 2023</p><p class="timeline__text">Stage, d’une semaine, magasin Les photos d’Aurélien. Vente, accompagnement des clients dans le processus d’impression de leur photographie, accompagnement d’un cours de photographie, rencontre avec des artistes, photographes</p></li>
         <li><p class="timeline__date"><span class="dot dot--other" aria-hidden="true"></span>Juillet 2020 – 2021 – 2022</p><p class="timeline__text">Animatrice BAFA en centre de loisirs pour enfants de 4 à 12 ans. MJC Loisirs au Village St Médard en Forez. Animatrice en colonie pour enfants de 4 à 18 ans, La ligue de l’enseignement</p></li>
@@ -312,9 +323,9 @@
         <h2 class="section-title" id="formation"><em class="em--green">Formation</em></h2>
       </div>
       <ol class="timeline timeline--green">
-        <li><p class="timeline__date">2025 – 2027</p><p class="timeline__text">Master 2 cinéma audiovisuel, parcours Études et Créations Photographiques, université Lyon 2 Lumière — en cours</p></li>
-        <li><p class="timeline__date">2021 – 2024</p><p class="timeline__text">Obtention d’une licence arts plastiques, Université Jean Monnet Saint-Étienne, options photographie, art numérique, photographie expérimentale, photographie argentique, cinéma italien,...</p></li>
-        <li><p class="timeline__date">2021</p><p class="timeline__text">Obtention du baccalauréat général, option Science de l’ingénieur, physique chimie, Lycée des Horizons Chazelles-Sur-Lyon</p></li>
+        <li><p class="timeline__date">2025 – 2027</p><p class="timeline__text">Master 2 cinéma audiovisuel, parcours Études et Créations Photographiques, Université Lumière Lyon 2 — en cours</p></li>
+        <li><p class="timeline__date">2021 – 2024</p><p class="timeline__text">Obtention d’une licence arts plastiques, Université Jean Monnet Saint-Étienne, options photographie, art numérique, photographie expérimentale, photographie argentique, cinéma italien…</p></li>
+        <li><p class="timeline__date">2021</p><p class="timeline__text">Obtention du baccalauréat général, option Science de l’ingénieur, physique chimie, Lycée des Horizons Chazelles-sur-Lyon</p></li>
         <li><p class="timeline__date">2021</p><p class="timeline__text">Obtention du BAFA</p></li>
       </ol>
     </section>

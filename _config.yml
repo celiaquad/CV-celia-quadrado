@@ -1,0 +1,5 @@
+# Configuration GitHub Pages : fichiers du dépôt à ne pas publier sur le site.
+exclude:
+  - LISEZ-MOI.md
+  - source
+  - "CV Celia Quadrado.pdf"
