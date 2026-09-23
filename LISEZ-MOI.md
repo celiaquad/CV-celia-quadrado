@@ -14,8 +14,6 @@ sont auto-hébergées dans `fonts/`. Le site n'utilise ni cookie ni outil de mes
 - `images/` — les images du site (`cyanotypes.jpg`, aussi utilisée pour l'aperçu sur les
   réseaux sociaux).
 - `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME` — fichiers de mise en ligne.
-- `source/` — ancienne version du site (générée avec React), conservée pour archive ;
-  elle n'est plus utilisée.
 
 ## Utilisation
 
