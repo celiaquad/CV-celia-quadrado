@@ -2,18 +2,20 @@
 
 ## RGPD / polices
 
-Aucune requête vers Google Fonts n'est faite, ni par `index.html`, ni par la version
-source. Les polices sont fournies dans ce dossier (`fonts/`) et intégrées directement
-dans `index.html`. Rien ne sort du navigateur du visiteur.
+Aucune requête vers Google Fonts ni vers un autre service tiers n'est faite. Les polices
+sont auto-hébergées dans `fonts/`. Le site n'utilise ni cookie ni outil de mesure d'audience.
 
 ## Contenu du dossier
 
-- `index.html` — le site complet en un seul fichier, autonome : code, styles et polices
-  intégrés. Fonctionne hors ligne, aucun fichier externe nécessaire.
-- `fonts/` — les fichiers de polices `.woff2` + `fonts.css` (déclarations `@font-face`
-  auto-hébergées).
-- `source/` — la version source modifiable (`Site CV Celia Quadrado.html` + `support.js`),
-  qui charge les polices depuis `../fonts/fonts.css`.
+- `index.html` — le site complet : HTML et CSS statiques, quelques lignes de JavaScript
+  (facultatives) pour surligner la rubrique courante dans le menu. C'est ce fichier qu'on
+  modifie directement pour mettre à jour le CV.
+- `fonts/` — les fichiers de polices `.woff2` + `fonts.css` (déclarations `@font-face`).
+- `images/` — les images du site (`cyanotypes.jpg`, aussi utilisée pour l'aperçu sur les
+  réseaux sociaux).
+- `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME` — fichiers de mise en ligne.
+- `source/` — ancienne version du site (générée avec React), conservée pour archive ;
+  elle n'est plus utilisée.
 
 ## Utilisation
 
@@ -21,12 +23,9 @@ Double-cliquez sur `index.html` pour ouvrir le site dans un navigateur.
 
 ## Mise en ligne
 
-Option 1 (la plus simple) : déposez `index.html` seul à la racine de votre hébergement
-(GitHub Pages, Netlify, Vercel…). Aucun autre fichier n'est nécessaire.
-
-Option 2 : mettez en ligne `source/Site CV Celia Quadrado.html` renommé `index.html`,
-avec `support.js` à côté et le dossier `fonts/` ; corrigez alors le chemin du CSS en
-`fonts/fonts.css` (au lieu de `../fonts/fonts.css`).
+Le site est publié par GitHub Pages sur https://cv.quadrado.fr/. Mettez en ligne
+`index.html` **avec** les dossiers `fonts/` et `images/` et le fichier `favicon.svg`.
+Pensez à mettre à jour la date `<lastmod>` de `sitemap.xml` à chaque modification.
 
 ## Polices utilisées
 
